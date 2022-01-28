@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 const fs = require('fs');
 const path = require("path");
 
-const { generateMarkdown, renderLicenseBadge, renderLicenseLink, renderLicenseSection } = require('./utils/markdown-template');
+const { generateMarkdown } = require('./utils/markdown-template');
     //const { writeToFile, copyFile } = require('./utils/generateReadMe');
 // TODO: Create an array of questions for user input
 // const questions = () => {
@@ -108,16 +108,16 @@ const questions = [
             }
         },
         {
-            type: 'checkbox',
+            type: 'list',
             name: 'license',
             message: 'What license do you want to include for your project?',
             choices: [
+                'None',
                 'MIT',
                 'GNU GPLv3',
                 'Apache License 2.0',
                 'ISC License',
             ],
-            default: 'none'
         }
     ];
 
