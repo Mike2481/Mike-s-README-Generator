@@ -14,7 +14,7 @@ function renderLicenseLink(license) {
   if (!license) {
     return false;
   } else {
-    return `[${license}](../License/${license}.txt)`
+    return `[${license}](./License/${license}.txt)`
   }
 }
 
