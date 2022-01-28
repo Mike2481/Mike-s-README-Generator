@@ -1,12 +1,11 @@
 const fs = require('fs');
-const { reject } = require('lodash');  // this generated on it's own???
-const {resolve} = require('path');
+const { resolve } = require('path');
 
 
 
-const writeToFile = content => {
+const writeToFile = (fileContent) => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/README.md', content, err => {
+        fs.writeFile('./dist/README.md', fileContent, err => {
             if (err) {
                 reject(err);
                 return;
@@ -20,4 +19,19 @@ const writeToFile = content => {
     });
 };
 
-module.exports = { writeToFile };
+const copyFile = () => {
+    return new Promise((resolve, reject) => {
+        fs.copyFile('./dist/app.js', fileContent, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'copy complete'
+            });
+        });
+    });
+};
+
+module.exports = { writeToFile, copyFile };
