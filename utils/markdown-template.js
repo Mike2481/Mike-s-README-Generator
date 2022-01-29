@@ -1,69 +1,71 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  return ((license == 'None') ? '' : `![License](https://img.shields.io/badge/license-${license}-yellow.png)`);
+  return ((license == 'None') ? '' : `![License](https://img.shields.io/badge/license-${license.split(' ')[0]}-yellow.png)`);
 
 };
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  return ((license == 'None') ? '' : `[${license}](./License/${license}.txt)`);
+  return ((license == 'None') ? '' : `[${license}](./License/${license.split(' ')[0]}.txt)`);
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   return ((license == 'None') ? '' : `## License
-  This application is covered under the ${renderLicenseLink(license)} license.
+This application is covered under the ${renderLicenseLink(license)} license.
   `);
   }
 
+function renderTOC(tableList) {
+  // console.log(tableList);
+  let toc = '';
+  tableList.map(result => {
+    console.log(result);
+   toc += `*[${result.split(' ')[0]}](#${result.split(' ')[0]})\n\n`;
+  //  *[Installation](#Installation)
+
+  });
+  return toc;
+}
+
 
 function generateMarkdown(data) {
-  return `
-  # ${data.title}
+return `
+# ${data.title}
 
-  ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
 
-  ## Description
+## Description
 
-  ${data.description}
+${data.description}
 
-  ## Table of Contents
+## Table of Contents
 
-  *[Installation](#Installation)
+${renderTOC(data.tableList)}
 
-  *[Usage](#Usage)
+## Installation
 
-  *[License](#License)
+${data.install}
 
-  *[Contributing](#Contributing)
+## Usage
 
-  *[Tests](#Tests)
+${data.usage}
 
-  *[Questions](#Questions)
+${renderLicenseSection(data.license)}
+## Contributing
 
-  ## Installation
+${data.contribute}
 
-  ${data.install}
+## Tests
 
-  ## Usage
-
-  ${data.usage}
-
-  ${renderLicenseSection(data.license)}
-  ## Contributing
-
-  ${data.contribute}
-
-  ## Tests
-
-  ${data.testing}
+${data.testing}
 
 
-  ## Questions
+## Questions
 
-  If you have any questions, please contact me by email at ${data.email} or through [Github](https://github.com/${data.userName})
+If you have any questions, please contact me by email at ${data.email} or through [Github](https://github.com/${data.userName})
 
 `};
 

@@ -33,31 +33,39 @@ const questions = [
                 }
             }
         },
-        // {
-        //     type: 'checkbox',
-        //     name: 'tableList',
-        //     message: 'Select all options you want to see in your Table of Contents',
-        //     choices: [
-        //         {
-        //             name: 'Installation Instructions'
-        //         },
-        //         {
-        //             name: 'Usage Instructions'
-        //         },
-        //         {
-        //             name: 'License Information'
-        //         },
-        //         {
-        //             name: 'Contribution Guidelines'
-        //         },
-        //         {
-        //             name: 'Test Instructions'
-        //         },
-        //         {
-        //             name: 'Questions'
-        //         }
-        //     ],
-        // },
+        {
+            type: 'checkbox',
+            name: 'tableList',
+            message: 'Select all options you want to see in your Table of Contents (Must Select At Least One)',
+            choices: [
+                {
+                    name: 'Installation Instructions'
+                },
+                {
+                    name: 'Usage Instructions'
+                },
+                {
+                    name: 'License Information'
+                },
+                {
+                    name: 'Contributing Guidelines'
+                },
+                {
+                    name: 'Tests Instructions'
+                },
+                {
+                    name: 'Questions'
+                }
+            ],
+            validate: tableListChoices => {
+                if (tableListChoices) {
+                    return true;
+                } else {
+                    console.log('Please select at least one');
+                    return false;
+                }
+            }
+        },
         {
            type: 'input',
            name: 'install',
@@ -109,6 +117,7 @@ const questions = [
             type: 'list',
             name: 'license',
             message: 'What license do you want to include for your project?',
+            default: 'None',
             choices: [
                 'None',
                 'MIT',
