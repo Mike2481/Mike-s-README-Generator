@@ -1,12 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  // console.log(license);
-  // if (license == 'None') {
-  //   return ``;
-  // } else {
-  //   return `![License](https://img.shields.io/badge/license-${license}-yellow.png)`;
-  // }
   return ((license == 'None') ? '' : `![License](https://img.shields.io/badge/license-${license}-yellow.png)`);
 
 };
@@ -20,8 +14,10 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   return ((license == 'None') ? '' : `## License
-  ${renderLicenseLink(license)}`);
+  This application is covered under the ${renderLicenseLink(license)} license.
+  `);
   }
+
 
 function generateMarkdown(data) {
   return `
@@ -35,7 +31,17 @@ function generateMarkdown(data) {
 
   ## Table of Contents
 
-  ${data.tableList}
+  *[Installation](#Installation)
+
+  *[Usage](#Usage)
+
+  *[License](#License)
+
+  *[Contributing](#Contributing)
+
+  *[Tests](#Tests)
+
+  *[Questions](#Questions)
 
   ## Installation
 
@@ -45,19 +51,19 @@ function generateMarkdown(data) {
 
   ${data.usage}
 
+  ${renderLicenseSection(data.license)}
   ## Contributing
 
   ${data.contribute}
 
-  ## Testing
+  ## Tests
 
   ${data.testing}
 
-  ${renderLicenseSection(data.license)}
 
   ## Questions
 
-  If you have any questions, please contact me by email at ${data.email} or through [Github](github.com/${data.userName})
+  If you have any questions, please contact me by email at ${data.email} or through [Github](https://github.com/${data.userName})
 
 `};
 

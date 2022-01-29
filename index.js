@@ -4,10 +4,8 @@ const fs = require('fs');
 const path = require("path");
 
 const { generateMarkdown } = require('./utils/markdown-template');
-    //const { writeToFile, copyFile } = require('./utils/generateReadMe');
 // TODO: Create an array of questions for user input
-// const questions = () => {
-//     return inquirer.prompt([
+
 const questions = [
         {
             type: "input",
@@ -35,31 +33,31 @@ const questions = [
                 }
             }
         },
-        {
-            type: 'checkbox',
-            name: 'tableList',
-            message: 'Select all options you want to see in your Table of Contents',
-            choices: [
-                {
-                    name: 'Installation Instructions'
-                },
-                {
-                    name: 'Usage Instructions'
-                },
-                {
-                    name: 'License Information'
-                },
-                {
-                    name: 'Contribution Guidelines'
-                },
-                {
-                    name: 'Test Instructions'
-                },
-                {
-                    name: 'Questions'
-                }
-            ],
-        },
+        // {
+        //     type: 'checkbox',
+        //     name: 'tableList',
+        //     message: 'Select all options you want to see in your Table of Contents',
+        //     choices: [
+        //         {
+        //             name: 'Installation Instructions'
+        //         },
+        //         {
+        //             name: 'Usage Instructions'
+        //         },
+        //         {
+        //             name: 'License Information'
+        //         },
+        //         {
+        //             name: 'Contribution Guidelines'
+        //         },
+        //         {
+        //             name: 'Test Instructions'
+        //         },
+        //         {
+        //             name: 'Questions'
+        //         }
+        //     ],
+        // },
         {
            type: 'input',
            name: 'install',
