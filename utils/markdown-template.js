@@ -18,18 +18,19 @@ This application is covered under the ${renderLicenseLink(license)} license.
   `);
   }
 
+  //  Uses only the selected values from the tableList question to create the Table of Contents
 function renderTOC(tableList) {
-  // console.log(tableList);
+  // empty string to pass the map results into
   let toc = '';
   tableList.map(result => {
     console.log(result);
-   toc += `*[${result.split(' ')[0]}](#${result.split(' ')[0]})\n\n`;
-  //  *[Installation](#Installation)
+   toc += `*[${result.split(' ')[0]}](#${result.toLowerCase().split(' ')[0]})\n\n`; // split to get first word and /n/n to get proper format
 
   });
   return toc;
 }
 
+//  All data from questions and functions listed above used to create md 
 
 function generateMarkdown(data) {
 return `
@@ -65,10 +66,10 @@ ${data.testing}
 
 ## Questions
 
-If you have any questions, please contact me by email at ${data.email} or through [Github](https://github.com/${data.userName})
+If you have any questions, please contact me by [email](${data.email}) or through [Github](https://github.com/${data.userName})
 
 `};
 
 
 
-module.exports = { generateMarkdown, renderLicenseBadge, renderLicenseLink, renderLicenseSection };
+module.exports = { generateMarkdown };

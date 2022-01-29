@@ -2,8 +2,9 @@
 const inquirer = require("inquirer");
 const fs = require('fs');
 const path = require("path");
-
+// Brings in other file containing license and markdown functions
 const { generateMarkdown } = require('./utils/markdown-template');
+
 // TODO: Create an array of questions for user input
 
 const questions = [
@@ -34,6 +35,7 @@ const questions = [
             }
         },
         {
+            //  Checkbox used so that table of contents can be customizable 
             type: 'checkbox',
             name: 'tableList',
             message: 'Select all options you want to see in your Table of Contents (Must Select At Least One)',
@@ -114,6 +116,7 @@ const questions = [
             }
         },
         {
+            //  License selected from a list with None as the default
             type: 'list',
             name: 'license',
             message: 'What license do you want to include for your project?',
