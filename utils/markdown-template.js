@@ -66,7 +66,7 @@ ${data.testing}
 
 ## Questions
 
-If you have any questions, please contact me by [email](${data.email}) or through [Github](https://github.com/${data.userName})
+If you have any questions, please contact me by [email](mailto:${data.email}) or through [Github](https://github.com/${data.userName})
 
 `};
 
